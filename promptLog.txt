@@ -10,3 +10,14 @@ as a ux designer, outline and plan how we will layout the website.
 design uxApproach.md
 
 ===
+
+As a web dev, create website 
+- implement site in moog-history-site
+- implement site in react
+- leverage information in info
+- Make it rocking
+
+Execute uxApproach.md
+
+===
+
