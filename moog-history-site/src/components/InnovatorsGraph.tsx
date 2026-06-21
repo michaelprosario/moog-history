@@ -13,6 +13,7 @@ interface Innovator {
   gear: string[];
   x: number; // coordinate in SVG space
   y: number;
+  videos: { id: string; title: string; desc: string }[];
 }
 
 const INNOVATORS: Innovator[] = [
@@ -25,7 +26,11 @@ const INNOVATORS: Innovator[] = [
     connections: ['deutsch', 'carlos', 'emerson', 'wakeman', 'worrell', 'vagabonds'],
     gear: ['Theremin Vanguard/Melodia', 'Modular Systems', 'Minimoog Model D', 'Minimoog Voyager'],
     x: 350,
-    y: 180
+    y: 180,
+    videos: [
+      { id: 'XRg8R-00mjs', title: 'Moog (Documentary)', desc: 'Definitive feature-length documentary exploring Bob\'s life, creative philosophy, and deep interaction with musicians.' },
+      { id: 'sLx_x5Fuzp4', title: 'A Brief History of the Minimoog Part I', desc: 'Deep dive into how Bob and his team condensed complex wall-modular systems into the portable Model D.' }
+    ]
   },
   {
     id: 'deutsch',
@@ -36,7 +41,11 @@ const INNOVATORS: Innovator[] = [
     connections: ['bob'],
     gear: ['Early R.A. Moog Prototypes', 'Modular Cabinet Systems'],
     x: 120,
-    y: 100
+    y: 100,
+    videos: [
+      { id: '5hTyTHm1J_c', title: 'GIANTS | Herb Deutsch', desc: 'Filmed retrospective interview where Herb explains his 1963 collaborative workshops with Bob Moog.' },
+      { id: '87l3rcttb5c', title: 'The Mini Moog Synthesizer with Herb Deutsch', desc: 'Herb directly demonstrates and explains the building blocks of the Minimoog synthesizer.' }
+    ]
   },
   {
     id: 'carlos',
@@ -47,7 +56,11 @@ const INNOVATORS: Innovator[] = [
     connections: ['bob'],
     gear: ['Custom Moog Modular System'],
     x: 580,
-    y: 100
+    y: 100,
+    videos: [
+      { id: 'UsW2EDGbDqg', title: '1970: WENDY CARLOS | Music Now', desc: 'Rare archival BBC broadcast showcasing Wendy Carlos in her studio context constructing Switched-On Bach tracks.' },
+      { id: 'ZrtTDzd-XS8', title: '1969 short Moog demonstration by Wendy Carlos', desc: 'Historical look at Wendy Carlos explaining and patching her custom modular synthesizer.' }
+    ]
   },
   {
     id: 'emerson',
@@ -58,7 +71,11 @@ const INNOVATORS: Innovator[] = [
     connections: ['bob', 'wakeman'],
     gear: ['Monster Moog Modular Rig', 'Minimoog Model D'],
     x: 150,
-    y: 300
+    y: 300,
+    videos: [
+      { id: 'NpgS9prNZT4', title: 'Keith Emerson breaks down the moog', desc: 'Keith standing directly in front of his iconic Monster Moog modular rig, detailing how patches work.' },
+      { id: 'MRYx0ySEhjk', title: 'Keith Emerson - Lucky Man Moog Solo', desc: 'Vintage performance footage demonstrating the huge sonic impact of the gliding portamento solos.' }
+    ]
   },
   {
     id: 'wakeman',
@@ -69,7 +86,11 @@ const INNOVATORS: Innovator[] = [
     connections: ['bob', 'emerson'],
     gear: ['Multiple Minimoog Model Ds', 'Polymoog'],
     x: 350,
-    y: 320
+    y: 320,
+    videos: [
+      { id: 'oIuJZhDDfBg', title: 'How Bob Moog Changed Everything | Rick Wakeman', desc: 'Rick detailing his personal relationship with Bob Moog and how synths revolutionized live rock performance.' },
+      { id: 'QWT63Opnk6A', title: 'Yes Interviews: Rick Wakeman & Bob Moog', desc: 'Archival audio recalling Rick\'s first encounter with the Minimoog (buying it from an actor who thought it was broken).' }
+    ]
   },
   {
     id: 'worrell',
@@ -80,7 +101,11 @@ const INNOVATORS: Innovator[] = [
     connections: ['bob'],
     gear: ['Minimoog Model D (Flash Light settings)', 'custom keyboard rigs'],
     x: 550,
-    y: 300
+    y: 300,
+    videos: [
+      { id: 'G2B7Rt_VA0M', title: 'Flashlight - Moog Sub 37 Synth Sounds', desc: 'Breakdown reconstruction tracing how Bernie layered oscillators and dialed filter envelopes to build the bassline.' },
+      { id: 'A4GEGkkA_wM', title: 'Bernie Worrell at Moog in the am', desc: 'Raw footage showing Bernie\'s signature improvisational approach and fluid key styling at the Moog factory.' }
+    ]
   },
   {
     id: 'vagabonds',
@@ -91,7 +116,8 @@ const INNOVATORS: Innovator[] = [
     connections: ['bob'],
     gear: ['Martin Modular Clones', 'Welsh Minimoog Model 204E'],
     x: 350,
-    y: 60
+    y: 60,
+    videos: []
   }
 ];
 
@@ -280,6 +306,35 @@ export const InnovatorsGraph: React.FC<InnovatorsGraphProps> = ({
                       <span>COMP</span>
                       <strong>Active</strong>
                     </div>
+                  </div>
+                </div>
+              )}
+
+              {/* YouTube Videos Section */}
+              {activePerson.videos && activePerson.videos.length > 0 && (
+                <div className="drawer-video-section">
+                  <div className="drawer-section-title">
+                    <Music size={15} />
+                    <span>INNOVATOR IN ACTION</span>
+                  </div>
+                  <div className="drawer-videos-list">
+                    {activePerson.videos.map((vid, idx) => (
+                      <div key={idx} className="drawer-video-card">
+                        <iframe
+                          width="100%"
+                          height="160"
+                          src={`https://www.youtube.com/embed/${vid.id}`}
+                          title={`${activePerson.name} - ${vid.title}`}
+                          frameBorder="0"
+                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                          allowFullScreen
+                        ></iframe>
+                        <div className="drawer-video-meta">
+                          <strong className="drawer-video-title">{vid.title}</strong>
+                          <p className="drawer-video-desc">{vid.desc}</p>
+                        </div>
+                      </div>
+                    ))}
                   </div>
                 </div>
               )}

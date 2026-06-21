@@ -2418,3 +2418,47 @@
     grid-template-columns: 1fr;
   }
 }
+
+/* Drawer Videos Layout */
+.drawer-video-section {
+  margin-top: 15px;
+}
+
+.drawer-videos-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.drawer-video-card {
+  background: var(--obsidian);
+  border: 1px solid var(--panel-border);
+  border-radius: 6px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+}
+
+.drawer-video-card iframe {
+  border: none;
+}
+
+.drawer-video-meta {
+  padding: 12px;
+}
+
+.drawer-video-title {
+  font-family: var(--font-header);
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--amber);
+  display: block;
+  margin-bottom: 6px;
+}
+
+.drawer-video-desc {
+  font-size: 11px;
+  line-height: 1.4;
+  color: var(--text-secondary);
+}

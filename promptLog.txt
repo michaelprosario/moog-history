@@ -23,3 +23,8 @@ Execute uxApproach.md
 
 For each moog synth mentioned on the website, update the info panel.  Embed one or two youTube videos showing the instrument in action.
 
+====
+
+update the moog-history-site/src/components/InnovatorsGraph.tsx.
+- we want to display youtube videos related to each person / innovator.
+- you can find video links here: /home/user/moog-history/info/peopleVideos.md
