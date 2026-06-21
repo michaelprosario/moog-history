@@ -28,3 +28,9 @@ For each moog synth mentioned on the website, update the info panel.  Embed one 
 update the moog-history-site/src/components/InnovatorsGraph.tsx.
 - we want to display youtube videos related to each person / innovator.
 - you can find video links here: /home/user/moog-history/info/peopleVideos.md
+
+===
+
+On the home page, add a link to a Notebook LM to explore more history..
+It's ok to put the link somewhere near the bottom.
+https://notebooklm.google.com/notebook/d0ea2d02-6726-4f43-9327-2794c09b7ccc

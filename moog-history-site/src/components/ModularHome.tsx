@@ -337,6 +337,33 @@ export const ModularHome: React.FC<ModularHomeProps> = ({
           </div>
 
         </div>
+
+        {/* Module E: NOTEBOOK LM RESEARCH PORTAL */}
+        <div className="chassis-module module-notebooklm">
+          <div className="module-header">
+            <span className="module-title">DEEP HISTORY RESEARCH PORTAL</span>
+            <span className="module-index">MOD-05</span>
+          </div>
+          <div className="module-body notebook-body">
+            <div className="notebook-info">
+              <span className="led-green"></span>
+              <h4>NotebookLM Interactive Study Guide</h4>
+              <p>
+                Dive deeper into the engineering schematics, legal disputes, corporate acquisitions, and cultural impacts of Moog synthesis. Access our curated history database on NotebookLM for instant audio briefings and document study.
+              </p>
+            </div>
+            <a 
+              href="https://notebooklm.google.com/notebook/d0ea2d02-6726-4f43-9327-2794c09b7ccc"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="notebook-link-btn"
+              onClick={() => audioEngine.playInterfaceClick(400)}
+            >
+              Launch NotebookLM Research Terminal <ArrowRight size={14} />
+            </a>
+          </div>
+        </div>
+
       </div>
     </div>
   );
