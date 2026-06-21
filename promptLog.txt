@@ -21,3 +21,5 @@ Execute uxApproach.md
 
 ===
 
+For each moog synth mentioned on the website, update the info panel.  Embed one or two youTube videos showing the instrument in action.
+

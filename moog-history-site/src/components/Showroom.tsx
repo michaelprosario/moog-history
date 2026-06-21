@@ -20,9 +20,33 @@ interface SynthData {
   description: string;
   techHighlight: string;
   specDetails: { [key: string]: string };
+  videos: { id: string; title: string }[];
 }
 
 const SYNTHS_DATA: SynthData[] = [
+  {
+    name: 'Theremin',
+    year: 1954,
+    type: 'Touchless Electronic Instrument',
+    era: 'R.A. Moog Co. Origins',
+    chassis: 'Vintage wooden console cabinet or portable stand module',
+    keys: 'None (Touchless electromagnetic antenna control)',
+    production: 'Flushing, NY, USA (Early days)',
+    priceClass: 'Historical Collector / Educational',
+    description: 'Bob Moog\'s initial gateway into electronic design. A touchless musical instrument where the performer\'s hands modulate the electromagnetic field around two metal antennas to control pitch and volume.',
+    techHighlight: 'Early tube-based Vanguard models led to the 1961 transistorized Melodia, laying the groundwork for the voltage-control systems that Bob Moog later standardized.',
+    specDetails: {
+      'Circuitry': 'Heterodyning oscillators (vacuum tubes transitioning to transistors)',
+      'Antennas': 'Linear pitch antenna & loop volume antenna',
+      'Frequency': 'Continuous pitch range based on hand proximity',
+      'Legacy': 'Inducted into the TECnology Hall of Fame in 2005'
+    },
+    videos: [
+      { id: 'pSzTPGlNa5U', title: 'Clara Rockmore plays The Swan on Theremin' },
+      { id: 'YNoR-SR5t1s', title: 'A Brief History of the Theremin | Albert Glinsky'}
+    ]
+  },
+
   {
     name: 'Minimoog Model D',
     year: 1970,
@@ -40,7 +64,14 @@ const SYNTHS_DATA: SynthData[] = [
       'Envelope': '2 independent ADSD envelopes (Filter & Amp)',
       'Signal Path': '100% discrete transistors, fully analog',
       'Portability': 'Fold-up panel, solid wooden cabinet (28 lbs)'
-    }
+    },
+    videos: [
+      {id: '0z0cbMkOvY0', title: 'Dr Bob Moog demonstrates the Minimoog' },
+      { id: 'iwKtBqR7kwM', title: 'Moog Minimoog Model D Analog Synthesizer' },
+      { id: 'sLx_x5Fuzp4', title: 'A Brief History of the Minimoog Part I' },
+      { id: 'xh4Ok0ex2vU', title: 'A Brief History of the Minimoog Part II' },
+    ]
+
   },
   {
     name: 'Minimoog Voyager',
@@ -59,7 +90,11 @@ const SYNTHS_DATA: SynthData[] = [
       'Control': 'Full MIDI integration, 896 programmable presets',
       'Modulation': '2 LFOs, complex modulation matrix',
       'Interface': 'Backlit visual panel, 3D pressure-sensitive Touch Pad'
-    }
+    },
+    videos: [
+      { "id": "0jIMI3tFM2Y", "title": "Herb Deutsch on The Minimoog Voyager" },
+      { "id": "oR75HPWEIok", "title": "10th Anniversary Minimoog Voyager" }
+    ]
   },
   {
     name: 'Moog Muse',
@@ -78,44 +113,13 @@ const SYNTHS_DATA: SynthData[] = [
       'Filter': 'Dual classic Moog transistor ladder filters',
       'Sequencing': '64-step sequencer with parameter recording',
       'Memory': 'Over 500 factory presets including Memorymoog bank'
-    }
+    },
+    videos: [
+      { id: 'PcmjRPlxQGs', title: 'Moog Muse | Overview & Sound Design | Thomann' },
+
+    ]
   },
-  {
-    name: 'The Messenger',
-    year: 2026,
-    type: 'Monophonic Compact Synthesizer',
-    era: 'inMusic Era (First full model)',
-    chassis: 'Lightweight Plastic molded shell with metal faceplate overlay',
-    keys: '32-note mini keybed (no velocity response)',
-    production: 'Taiwan',
-    priceClass: 'Entry-Level / Accessible',
-    description: 'Developed fully under the inMusic stewardship, prioritizing portability and affordability. Departure from traditional wood-and-steel in favor of global mass production.',
-    techHighlight: 'Introduces a digital wave-folding circuit alongside the analog signal path to expand the sonic palette. Has a Bass Compensation button to prevent low-end frequency loss at high resonance.',
-    specDetails: {
-      'Oscillators': '1 Analog VCO with digital modulation + wave folder',
-      'Filter': 'Transistor Ladder filter with Bass Compensation mode',
-      'Interface': 'Screenless, multi-function "Quick Assign" PGM button matrix',
-      'Portability': 'Lightweight plastic shell (3.8 lbs), powered via USB-C'
-    }
-  },
-  {
-    name: 'Theremin',
-    year: 1954,
-    type: 'Touchless Electronic Instrument',
-    era: 'R.A. Moog Co. Origins',
-    chassis: 'Vintage wooden console cabinet or portable stand module',
-    keys: 'None (Touchless electromagnetic antenna control)',
-    production: 'Flushing, NY, USA (Early days)',
-    priceClass: 'Historical Collector / Educational',
-    description: 'Bob Moog\'s initial gateway into electronic design. A touchless musical instrument where the performer\'s hands modulate the electromagnetic field around two metal antennas to control pitch and volume.',
-    techHighlight: 'Early tube-based Vanguard models led to the 1961 transistorized Melodia, laying the groundwork for the voltage-control systems that Bob Moog later standardized.',
-    specDetails: {
-      'Circuitry': 'Heterodyning oscillators (vacuum tubes transitioning to transistors)',
-      'Antennas': 'Linear pitch antenna & loop volume antenna',
-      'Frequency': 'Continuous pitch range based on hand proximity',
-      'Legacy': 'Inducted into the TECnology Hall of Fame in 2005'
-    }
-  }
+
 ];
 
 export const Showroom: React.FC<ShowroomProps> = ({ 
@@ -461,6 +465,27 @@ export const Showroom: React.FC<ShowroomProps> = ({
                 </p>
                 <div className="cal-source-badge">Model D Revisions (1971-1981)</div>
               </div>
+            </div>
+          </div>
+
+          {/* YouTube Video Panel */}
+          <div className="showroom-video-panel">
+            <h4>INSTRUMENT IN ACTION</h4>
+            <div className="video-grid">
+              {activeSynth.videos.map((vid, idx) => (
+                <div key={idx} className="video-card">
+                  <iframe
+                    width="100%"
+                    height="180"
+                    src={`https://www.youtube.com/embed/${vid.id}`}
+                    title={`${activeSynth.name} - ${vid.title}`}
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowFullScreen
+                  ></iframe>
+                  <span className="video-card-title">{vid.title}</span>
+                </div>
+              ))}
             </div>
           </div>
         </div>
