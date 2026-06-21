@@ -1,0 +1,12 @@
+as a ux designer, draft a navigation plan for a website about the history and influence of the moog synths.  We want to understand the impact of the people, music, and synths linked to moog.  Draft a website organization.  Document in nav.md
+
+===
+
+as a ux designer, outline and plan how we will layout the website.
+- follow guidance in nav.md
+- leverage information and markdown files in the info folder
+- keep the website easy to navigate but rocking
+
+design uxApproach.md
+
+===
