@@ -364,6 +364,32 @@ export const ModularHome: React.FC<ModularHomeProps> = ({
           </div>
         </div>
 
+        {/* Module F: MOOGSEUM SPOTLIGHT */}
+        <div className="chassis-module module-moogseum">
+          <div className="module-header">
+            <span className="module-title">MOOGSEUM SPOTLIGHT</span>
+            <span className="module-index">MOD-06</span>
+          </div>
+          <div className="module-body moogseum-body">
+            <div className="moogseum-info">
+              <span className="moogseum-led"></span>
+              <h4>Shout Out to the Moogseum!</h4>
+              <p>
+                An inspired museum located in Asheville, NC, celebrating the work of Bob Moog and his team of engineers who invented rock keyboarding. Explore their legacy and support their mission.
+              </p>
+            </div>
+            <a 
+              href="https://www.youtube.com/@moogfoundation"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="moogseum-link-btn"
+              onClick={() => audioEngine.playInterfaceClick(400)}
+            >
+              Explore Moog Foundation YouTube <ArrowRight size={14} />
+            </a>
+          </div>
+        </div>
+
       </div>
     </div>
   );

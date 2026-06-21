@@ -34,3 +34,8 @@ update the moog-history-site/src/components/InnovatorsGraph.tsx.
 On the home page, add a link to a Notebook LM to explore more history..
 It's ok to put the link somewhere near the bottom.
 https://notebooklm.google.com/notebook/d0ea2d02-6726-4f43-9327-2794c09b7ccc
+
+
+On the home page, give a shout out to the Moogseum of Asheville, NC.  It was an inspired museum celebrating the work of Moog and his team of engineers who invented rock keyboarding.
+It's ok to put the link somewhere near the bottom.
+https://www.youtube.com/@moogfoundation
